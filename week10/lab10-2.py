@@ -41,10 +41,6 @@ for file in sorted(glob.glob(os.path.join(input_dir, "*.jpg"))):
     # 마스크 적용 (선 부분만 보이게)
     result = cv2.bitwise_and(img, img, mask=mask)
 
-    # 배경을 완전히 검게 하려면 아래 코드 추가
-    # background = np.zeros_like(img)
-    # result = cv2.bitwise_or(background, result)
-
     # 결과 저장
     base_name = os.path.basename(file)
     out_path = os.path.join(output_dir, f"detected_{base_name}")
@@ -52,4 +48,3 @@ for file in sorted(glob.glob(os.path.join(input_dir, "*.jpg"))):
 
     print(f"✅ Saved: {out_path}")
 
-print("🎉 모든 이미지 처리 완료!")
